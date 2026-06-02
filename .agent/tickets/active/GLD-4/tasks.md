@@ -32,10 +32,10 @@
 
 ## Phase 4: Client data layer (TanStack Query)
 
-- [ ] Install and configure `@tanstack/react-query` with `QueryClientProvider` in root layout
-- [ ] Add `src/features/gold-rate/queryKeys.ts` — stable keys for spot and FX queries
-- [ ] Add `src/features/gold-rate/useGoldRate.ts` — parallel fetch spot + FX, `refetchInterval: 30_000`, stale/error flags
-- [ ] Add `src/features/gold-rate/usePawnPrice.ts` — derive pawn LKR from spot + FX + selected karat via `computePawnPriceLkr`
+- [x] Install and configure `@tanstack/react-query` with `QueryClientProvider` in root layout
+- [x] Add `src/features/gold-rate/queryKeys.ts` — stable keys for spot and FX queries
+- [x] Add `src/features/gold-rate/useGoldRate.ts` — parallel fetch spot + FX, `refetchInterval: 30_000`, stale/error flags
+- [x] Add `src/features/gold-rate/usePawnPrice.ts` — derive pawn LKR from spot + FX + selected karat via `computePawnPriceLkr`
 
 ## Phase 5: Dashboard UI
 
