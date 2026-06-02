@@ -19,7 +19,7 @@ repo: gold-rate
 
 # Required when ticketing: jira. Leave blank otherwise.
 
-cloud_id: 26be6ccf-8778-4a20-9584-98afaab9eba7
+cloud_id: 4d520abd-65c3-4484-b3b8-fb2c021d4678
 project_key: GLD
 
 ## GitHub Issues

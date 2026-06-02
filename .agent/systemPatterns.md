@@ -1,25 +1,43 @@
 # System Patterns
 
-## Architecture (planned)
+## Architecture
 
 ```
-[Gold rate API] --> [Fetcher / cache] --> [Pure price math] --> [React UI]
+[Browser / TanStack Query, 30s poll]
+        │
+        ▼
+[/api/gold-spot]  [/api/fx-usd-lkr]   ← Next.js route handlers; keys in .env only
+        │                    │
+        ▼                    ▼
+[Metals API]          [FX API]
+        │                    │
+        └────────┬───────────┘
+                 ▼
+    mapApiResponses → computePawnPriceLkr → Dashboard UI
 ```
 
-- **Pure functions** for unit conversion: oz → g, USD → LKR, rate × 8g
-- **Side effects at edges**: HTTP client, polling/refresh timer, Electron main if needed
-- **React Query** (or project equivalent) for server state and refresh intervals
+- **Feature module**: `src/features/gold-rate/` owns types, pure math, mappers, hooks, and UI components
+- **Pure functions** for conversion: troy oz → g, USD → LKR, karat purity × 8g pawn
+- **Side effects at edges**: Next.js API routes (upstream fetch), TanStack Query (client poll), React UI
+- **BFF pattern**: browser never calls metals/FX APIs directly; server routes proxy and normalize responses
 
-## Key decisions (to confirm in spec)
+## Confirmed decisions (GLD-4)
 
-| Topic | Options |
-|-------|---------|
-| Data source | International spot × FX, local CBSL/jewellers feed, scraped public page |
-| App shell | Electron desktop vs Vite web-only |
-| Refresh | Polling interval (e.g. 60s–5m) vs manual refresh |
-| Pawn definition | Fixed 8g; document if local market uses different purity (22k/24k) |
+| Topic | Decision |
+|-------|----------|
+| Data source | International spot (metals API) × USD→LKR FX |
+| App shell | **Next.js 16** App Router (web) |
+| Refresh | Auto-poll **every 30s** via TanStack Query |
+| Pawn | Fixed **8g**; **24k / 22k** toggle |
+| LKR format | `Rs.` prefix, **2 decimals** |
 
 ## Security
 
-- No API keys in client bundle; use env vars and Electron secure storage if needed
-- Validate and sanitize any user-configurable refresh settings
+- API keys only in server env (`METALS_API_KEY`, etc.); validated in `getServerEnv()`
+- API routes return `{ error: string }` on failure for consistent client error UI
+- No secrets in client bundle
+
+## Critical paths
+
+- Price math: `computePawnPriceLkr(spot, fx, karat)` — unit-tested, used by `usePawnPrice`
+- metals-api returns XAU as oz per USD; mapper inverts to USD per troy oz

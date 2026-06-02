@@ -8,7 +8,11 @@ Deliver a **live gold rate dashboard** for Sri Lanka that shows the current gold
 
 - Real-time or near-real-time gold price tracking
 - Conversion/display for **8g (1 pawn)** in **Sri Lankan Rupees**
-- Desktop-friendly UI (Electron + React per project rules)
+- **Next.js 16** web dashboard (responsive; not Electron)
+
+## Status
+
+- **v1 implemented** (GLD-4): live dashboard at `/` with 24k/22k toggle and 30s auto-refresh
 
 ## Out of scope (initial)
 
