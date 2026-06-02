@@ -24,11 +24,11 @@
 
 ## Phase 3: Server data fetching (API routes)
 
-- [ ] Add `src/lib/env.ts` — validate required env vars at runtime (server-only)
-- [ ] Add `src/app/api/gold-spot/route.ts` — fetch international gold spot from metals API (server-side, key from env)
-- [ ] Add `src/app/api/fx-usd-lkr/route.ts` — fetch USD→LKR rate (server-side)
-- [ ] Add `src/features/gold-rate/mapApiResponses.ts` — pure mappers from raw API JSON to domain types
-- [ ] Return consistent error shapes from both routes (status codes + message) for client stale/error UI
+- [x] Add `src/lib/env.ts` — validate required env vars at runtime (server-only)
+- [x] Add `src/app/api/gold-spot/route.ts` — fetch international gold spot from metals API (server-side, key from env)
+- [x] Add `src/app/api/fx-usd-lkr/route.ts` — fetch USD→LKR rate (server-side)
+- [x] Add `src/features/gold-rate/mapApiResponses.ts` — pure mappers from raw API JSON to domain types
+- [x] Return consistent error shapes from both routes (status codes + message) for client stale/error UI
 
 ## Phase 4: Client data layer (TanStack Query)
 
