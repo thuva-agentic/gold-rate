@@ -39,12 +39,12 @@
 
 ## Phase 5: Dashboard UI
 
-- [ ] Add `src/features/gold-rate/components/KaratToggle.tsx` — switch **24k** / **22k** (controlled state, default 24k)
-- [ ] Add `src/features/gold-rate/components/PawnPriceHero.tsx` — primary **8g pawn** price in LKR using `formatLkr`
-- [ ] Add `src/features/gold-rate/components/RateDetails.tsx` — per-gram LKR, USD spot reference, data source label
-- [ ] Add `src/features/gold-rate/components/LastUpdated.tsx` — timestamp from query `dataUpdatedAt`
-- [ ] Add `src/features/gold-rate/components/RateStatusBanner.tsx` — loading skeleton, error message, stale warning when fetch fails
-- [ ] Implement `src/app/page.tsx` — compose dashboard components; single-route minimal layout
+- [x] Add `src/features/gold-rate/components/KaratToggle.tsx` — switch **24k** / **22k** (controlled state, default 24k)
+- [x] Add `src/features/gold-rate/components/PawnPriceHero.tsx` — primary **8g pawn** price in LKR using `formatLkr`
+- [x] Add `src/features/gold-rate/components/RateDetails.tsx` — per-gram LKR, USD spot reference, data source label
+- [x] Add `src/features/gold-rate/components/LastUpdated.tsx` — timestamp from query `dataUpdatedAt`
+- [x] Add `src/features/gold-rate/components/RateStatusBanner.tsx` — loading skeleton, error message, stale warning when fetch fails
+- [x] Implement `src/app/page.tsx` — compose dashboard components; single-route minimal layout
 
 ## Phase 6: Docs, acceptance & CI-ready checks
 
