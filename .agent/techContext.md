@@ -39,3 +39,7 @@
 
 - `next@16`, `react@19`, `@tanstack/react-query`
 - Dev: `vitest`, `@vitejs/plugin-react`, `tailwindcss@4`, `eslint-config-next`
+
+## Deployment
+
+- v1 merged to `staging`; runtime requires `.env` with metals and FX API credentials

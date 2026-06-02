@@ -12,7 +12,7 @@ Deliver a **live gold rate dashboard** for Sri Lanka that shows the current gold
 
 ## Status
 
-- **v1 implemented** (GLD-4): live dashboard at `/` with 24k/22k toggle and 30s auto-refresh
+- **v1 shipped** (GLD-4, merged to `staging`): live dashboard at `/` with 24k/22k toggle and 30s auto-refresh
 
 ## Out of scope (initial)
 

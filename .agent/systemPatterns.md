@@ -31,6 +31,10 @@
 | Pawn | Fixed **8g**; **24k / 22k** toggle |
 | LKR format | `Rs.` prefix, **2 decimals** |
 
+## Shipped (GLD-4)
+
+- v1 dashboard merged to `staging` — see `.agent/tickets/archived/GLD-4/` for full spec and task record
+
 ## Security
 
 - API keys only in server env (`METALS_API_KEY`, etc.); validated in `getServerEnv()`
