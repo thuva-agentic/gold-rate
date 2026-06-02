@@ -1,9 +1,8 @@
-# DM-1688 — Live gold rate dashboard (8g pawn in LKR)
+# GLD-4 — Live gold rate dashboard (8g pawn in LKR)
 
-**Jira:** https://deepmodel.atlassian.net/browse/DM-1688  
-**Branch:** `feature-DM-1688-live-gold-rate-dashboard-lkr`  
-**Status:** Draft — Q&A pending  
-**Product Jira (future):** GLD
+**Jira:** https://thuvaraganparamesh.atlassian.net/browse/GLD-4  
+**Branch:** `feature-GLD-4-live-gold-rate-dashboard-lkr`  
+**Status:** Planned — ready for implementation
 
 ## Summary
 
@@ -32,23 +31,23 @@ Answer inline below before `/dm plan`.
 1. **Gold rate source:** Which feed should v1 use?
    - (a) International spot (e.g. metals API) × USD→LKR FX
    - (b) Sri Lanka–specific published rate (CBSL, association, or jeweller API — specify URL)
-   - (c) Manual admin-entered rate with optional API later  
-   - **Answer:**
+   - (c) Manual admin-entered rate with optional API later
+   - **Answer:** a
 
-2. **Purity / karat:** Is the displayed pawn price for **24k**, **22k**, or market “standard” as used locally?  
-   - **Answer:**
+2. **Purity / karat:** Is the displayed pawn price for **24k**, **22k**, or market “standard” as used locally?
+   - **Answer:** If possible create a toggle to switch between 24 and 22 else make it standard
 
-3. **Pawn weight:** Confirm **8g = 1 pawn** (fixed multiplier, no configurable weight in v1)?  
-   - **Answer:**
+3. **Pawn weight:** Confirm **8g = 1 pawn** (fixed multiplier, no configurable weight in v1)?
+   - **Answer:** 8g = 1 pawn
 
-4. **Refresh interval:** Auto-poll every ___ seconds, or manual refresh only?  
-   - **Answer:**
+4. **Refresh interval:** Auto-poll every \_\_\_ seconds, or manual refresh only?
+   - **Answer:** auto poll every 30s
 
-5. **Deployment target:** Electron desktop only, or also deploy as static web?  
-   - **Answer:**
+5. **Deployment target:** Electron desktop only, or also deploy as static web?
+   - **Answer:** just a nextjs v16 app
 
-6. **Formatting:** LKR display rules (e.g. `Rs. 1,234,567`, round to whole rupees vs 2 decimals)?  
-   - **Answer:**
+6. **Formatting:** LKR display rules (e.g. `Rs. 1,234,567`, round to whole rupees vs 2 decimals)?
+   - **Answer:**2 decimals
 
 ## Technical approach (draft)
 
@@ -67,5 +66,4 @@ Answer inline below before `/dm plan`.
 ## Notes
 
 - Task description: dashboard tracking live gold rate; display **8g (1 pawn)** in **LKR**
-- Repo: `thuva-agentic/gold-rate` (empty)
-- When **GLD** Jira project is created, link or migrate ticket from DM-1688
+- Repo: `thuva-agentic/gold-rate` (greenfield)
