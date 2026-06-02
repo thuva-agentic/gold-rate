@@ -1,28 +1,41 @@
 # Tech Context
 
-## Stack (from IDE rules)
+## Stack (GLD-4)
 
-- **Electron** + **React** + **TypeScript** + **Vite**
-- **Tailwind CSS v4** (CSS-first config)
-- **TanStack Query** for async gold-rate data
-- Strict TypeScript, functional-first style
+- **Next.js 16** (App Router) + **React 19** + **TypeScript**
+- **Tailwind CSS v4** (CSS-first `@import "tailwindcss"`)
+- **TanStack Query** — client polling every 30s for `/api/gold-spot` and `/api/fx-usd-lkr`
+- **Vitest** — unit tests for pure price math and API mappers
+- Functional-first: pure functions in `src/features/gold-rate/`, side effects at API/UI edges
 
 ## Repository
 
-- `thuva-agentic/gold-rate` (empty scaffold; greenfield)
+- GitHub: `thuva-agentic/gold-rate`
 - Base branch: `staging` (per `project-config.mdc`)
 
 ## Tooling
 
-- `npm run lint`, `npm run build`, project test script before merge
+- `npm run dev` | `build` | `lint` | `test`
+- Env vars: `METALS_API_KEY`, `METALS_API_BASE_URL`, `FX_API_URL` (see `.env.example`)
 
 ## Jira / Atlassian
 
-- Configured `project_key`: **GLD** — project not found on connected `deepmodel.atlassian.net` site yet
-- Accessible `cloud_id`: `26be6ccf-8778-4a20-9584-98afaab9eba7` (update `project-config.mdc` if different from placeholder)
-- Interim tracking: **DM** story until GLD project exists
+- Project key: **GLD** on `thuvaraganparamesh.atlassian.net`
+- `cloud_id`: `4d520abd-65c3-4484-b3b8-fb2c021d4678` (in `project-config.mdc`)
 
-## Environment
+## Data sources (v1)
 
-- Gold rate API URL and keys via `.env` (never committed)
-- USD/LKR or direct LKR rate source TBD in ticket spec
+- International gold spot (USD/troy oz) via metals API
+- USD→LKR via configurable FX URL
+- Pawn: fixed **8g**; purity **24k** / **22k** toggle
+
+## Feature layout
+
+- `src/features/gold-rate/` — domain types, pure math, API mappers, fetch helpers, query hooks, dashboard components
+- `src/lib/env.ts` — server-only env validation
+- `src/providers/query-provider.tsx` — TanStack Query client wrapper in root layout
+
+## Dependencies (runtime)
+
+- `next@16`, `react@19`, `@tanstack/react-query`
+- Dev: `vitest`, `@vitejs/plugin-react`, `tailwindcss@4`, `eslint-config-next`

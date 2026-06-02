@@ -8,9 +8,9 @@ Gold buyers and sellers in Sri Lanka often reason in **pawn** units (traditional
 
 A simple dashboard that:
 
-1. Fetches a trusted **live gold rate** (source TBD in spec Q&A)
-2. Computes and highlights **price for 8g (1 pawn)** in **LKR**
-3. Refreshes automatically and shows when data was last updated
+1. Fetches **international gold spot** (USD/troy oz) and **USD→LKR** FX, combined server-side
+2. Computes and highlights **price for 8g (1 pawn)** in **LKR** (24k default; **22k toggle**)
+3. Refreshes every **30 seconds** and shows when data was last updated
 
 ## Users
 
@@ -20,5 +20,7 @@ A simple dashboard that:
 ## UX principles
 
 - **One number matters most**: 8g pawn price in LKR, large and readable
-- Secondary: per-gram rate, last updated time, source attribution
+- Secondary: per-gram LKR, USD spot, FX rate, source attribution
+- **24k / 22k** purity toggle on the dashboard
+- LKR amounts formatted with **2 decimal places** (`Rs. 1,234.56`)
 - Clear offline/error state — never show stale data without a warning

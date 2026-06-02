@@ -2,7 +2,7 @@
 
 **Jira:** https://thuvaraganparamesh.atlassian.net/browse/GLD-4  
 **Branch:** `feature-GLD-4-live-gold-rate-dashboard-lkr`  
-**Status:** Planned — ready for implementation
+**Status:** Complete
 
 ## Summary
 
@@ -58,10 +58,10 @@ Answer inline below before `/dm plan`.
 
 ## Acceptance criteria
 
-- [ ] Live rate loads on open; refresh per Q&A
-- [ ] **8g pawn price in LKR** is the primary visible metric
-- [ ] Last-updated timestamp visible; stale data shows warning if fetch fails
-- [ ] `npm run lint` and `npm run build` pass
+- [x] Live rate loads on open; refresh per Q&A (TanStack Query `refetchInterval: 30_000`)
+- [x] **8g pawn price in LKR** is the primary visible metric (`PawnPriceHero`)
+- [x] Last-updated timestamp visible; stale data shows warning if fetch fails (`LastUpdated`, `RateStatusBanner`)
+- [x] `npm run lint` and `npm run build` pass
 
 ## Notes
 
